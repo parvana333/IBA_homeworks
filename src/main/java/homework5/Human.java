@@ -19,14 +19,6 @@ public class Human {
         this.dateOfBith = dateOfBith;
     }
 
-    public Human(String name, String surname, int dateOfBith, Family family) {
-        this(name,surname,dateOfBith);
-        this.name = name;
-        this.surname = surname;
-        this.dateOfBith = dateOfBith;
-        this.family = family;
-    }
-
     public String getName() {
         return name;
     }
@@ -53,6 +45,10 @@ public class Human {
 
     public Family getFamily() {
         return family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
     }
 
     @Override
