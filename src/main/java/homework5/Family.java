@@ -1,5 +1,6 @@
 package homework5;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 
 public class Family {
@@ -7,9 +8,6 @@ public class Family {
     private Human father;
     private Human [] children;
     private Pet pet;
-    int maxsizeOfChildren;
-   static int  index=0;
-
     public Family() {
 
     }
@@ -17,13 +15,10 @@ public class Family {
         this.mother = mother;
         this.father=father;
     }
-
-    public Family(Human mother, Human father, int maxsizeOfChildren) {
+    public Family(Human mother, Human father,Human [] children) {
+        this.children=children;
         this.mother=mother;
         this.father=father;
-        this.maxsizeOfChildren=maxsizeOfChildren;
-        children=new Human[this.maxsizeOfChildren];
-
     }
     public Human getMother() {
         return mother;
@@ -41,8 +36,9 @@ public class Family {
         return pet;
     }
 
-    public void addChild (Human child){
-        if (index > maxsizeOfChildren)  System.out.println("you passed the limit");
+    public void addChild (Human [] children,Human child){
+        int index=0;
+        if (index > children.length)  System.out.println("you passed the limit");
         else children[index++]=child;
     }
     public void deleteChild(int n){
@@ -55,7 +51,6 @@ public class Family {
             }
             else children[n]=null;
         }
-
 
     }
     public int countFamily(){
@@ -74,5 +69,23 @@ public class Family {
                 ", children=" + Arrays.toString(children) +
                 ", pet=" + pet +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Family)) return false;
+        Family family = (Family) o;
+        return Objects.equals(getMother(), family.getMother()) &&
+                Objects.equals(getFather(), family.getFather()) &&
+                Arrays.equals(getChildren(), family.getChildren());
+    }
+
+    @Override
+    public int hashCode() {
+
+        int result = Objects.hash(getMother(), getFather());
+        result = 31 * result + Arrays.hashCode(getChildren());
+        return result;
     }
 }

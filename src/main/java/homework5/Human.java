@@ -1,5 +1,6 @@
 package homework5;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Human {
     private String name;
@@ -66,6 +67,22 @@ public class Human {
                 ", dateOfBith=" + getDateOfBith() +
                 ", schedule=" + Arrays.deepToString(schedule) +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Human)) return false;
+        Human human = (Human) o;
+        return getDateOfBith() == human.getDateOfBith() &&
+                Objects.equals(getName(), human.getName()) &&
+                Objects.equals(getSurname(), human.getSurname());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getName(), getSurname(), getDateOfBith());
     }
 }
 
