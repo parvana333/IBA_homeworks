@@ -6,11 +6,18 @@ public class Human {
     private String surname;
     private int dateOfBith;
     private byte iq;
-    private Pet pet;
     private String[][] schedule;
     private Family family;
 
     public Human() {
+    }
+
+    public Human(String name, String surname, int dateOfBith,byte iq, String[][] schedule ) {
+        this.iq=iq;
+        this.schedule=schedule;
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBith = dateOfBith;
     }
 
     public Human(String name, String surname, int dateOfBith) {
@@ -35,10 +42,6 @@ public class Human {
         return iq;
     }
 
-    public Pet getPet() {
-        return pet;
-    }
-
     public String[][] getSchedule() {
         return schedule;
     }
@@ -51,13 +54,17 @@ public class Human {
         this.family = family;
     }
 
+    public void setSchedule(String[][] schedule) {
+        this.schedule = schedule;
+    }
+
     @Override
     public String toString() {
-        return "Human{" +
+        return
                 "name='" + getName() + '\'' +
                 ", surname='" + getSurname() + '\'' +
                 ", dateOfBith=" + getDateOfBith() +
-                ", schedule=" + Arrays.toString(schedule) +
+                ", schedule=" + Arrays.deepToString(schedule) +
                 '}';
     }
 }

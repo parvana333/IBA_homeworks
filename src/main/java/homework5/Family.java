@@ -7,23 +7,24 @@ public class Family {
     private Human father;
     private Human [] children;
     private Pet pet;
-    int maxsize;
-    int index;
+    int maxsizeOfChildren;
+   static int  index=0;
 
     public Family() {
 
     }
-
-    public Family(Human mother, Human father, int maxsize) {
-        this(maxsize);
+    public Family(Human mother, Human father) {
         this.mother = mother;
         this.father=father;
     }
 
-    public Family(int maxsize) {
-        this.children = new Human[maxsize];
-    }
+    public Family(Human mother, Human father, int maxsizeOfChildren) {
+        this.mother=mother;
+        this.father=father;
+        this.maxsizeOfChildren=maxsizeOfChildren;
+        children=new Human[this.maxsizeOfChildren];
 
+    }
     public Human getMother() {
         return mother;
     }
@@ -41,18 +42,28 @@ public class Family {
     }
 
     public void addChild (Human child){
-        if (index > maxsize)  System.out.println("you passed");
-
+        if (index > maxsizeOfChildren)  System.out.println("you passed the limit");
         else children[index++]=child;
     }
     public void deleteChild(int n){
-        for (int i = n; i <children.length-1 ; i++) {
-            children[i]=children[i+1];
+        if(n>children.length) System.out.println("there is not child at this index");
+        else{
+            if(n>=1){
+                for (int i = n; i <children.length-1 ; i++) {
+                    children[i]=children[i+1];
+                }
+            }
+            else children[n]=null;
         }
+
+
     }
     public int countFamily(){
-
-        return 2+children.length;
+        int count=0;
+        for (Human child: children) {
+            if (child != null)  count++;
+        }
+        return 2+count;
     }
 
     @Override
