@@ -2,6 +2,6 @@ package homework7;
 
 public enum Species {
 
-    Fish,RoboCat,DpmesticCat
+    Fish,Cat,UNKNOWN;
 
 }
