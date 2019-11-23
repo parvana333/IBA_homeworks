@@ -1,6 +1,6 @@
-package homework9.DAO;
+package homework9.dao;
 
-import homework9.familyController.Family;
+import homework9.controller.Family;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ public class CollectionFamilyDao implements FamilyDao<Family> {
     private final List<Family> list=new ArrayList<>();
 
     @Override
-    public List getAllFamilies() {
+    public List<Family> getAllFamilies() {
         return list;
     }
 
@@ -25,7 +25,6 @@ public class CollectionFamilyDao implements FamilyDao<Family> {
             return true;
         }
         else return false;
-
     }
 
     @Override
@@ -35,7 +34,6 @@ public class CollectionFamilyDao implements FamilyDao<Family> {
             return true;
         }
         else return false;
-
     }
 
     @Override
@@ -47,8 +45,5 @@ public class CollectionFamilyDao implements FamilyDao<Family> {
         else list.add(f);
     }
 
-    public int countMember(Family f){
-        return 2+f.getChildren().size();
 
-    }
 }

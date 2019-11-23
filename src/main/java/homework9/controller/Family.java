@@ -1,4 +1,4 @@
-package homework9.familyController;
+package homework9.controller;
 import java.util.List;
 
 public class Family {
@@ -39,5 +39,14 @@ public class Family {
 
     public void setChildren(List<Human> children) {
         this.children = children;
+    }
+
+    @Override
+    public String toString() {
+        return "Family{" +
+                "mother=" + mother +
+                ", father=" + father +
+                ", children=" + children +
+                '}';
     }
 }
