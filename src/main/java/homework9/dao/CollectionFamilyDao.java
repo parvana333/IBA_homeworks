@@ -1,6 +1,6 @@
 package homework9.dao;
 
-import homework9.controller.Family;
+import homework9.utils.Family;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,12 @@ public class CollectionFamilyDao implements FamilyDao<Family> {
 
     @Override
     public Family getFamilyByIndex(int index) {
-        return list.get(index);
+        try {
+            return list.get(index);
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -44,6 +49,5 @@ public class CollectionFamilyDao implements FamilyDao<Family> {
         }
         else list.add(f);
     }
-
 
 }

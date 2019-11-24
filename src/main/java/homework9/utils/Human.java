@@ -1,4 +1,4 @@
-package homework9.controller;
+package homework9.utils;
 
 public class Human {
     private String name;

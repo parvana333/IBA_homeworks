@@ -1,9 +1,11 @@
-package homework9.controller;
+package homework9.utils;
 import java.util.List;
+import java.util.Set;
 
 public class Family {
     private Human mother;
     private Human father;
+    private Set<Pet> pet;
     private List<Human> children;
 
     public Family(Human mother, Human father) {
@@ -11,10 +13,11 @@ public class Family {
         this.father = father;
     }
 
-    public Family(Human mother, Human father, List<Human> children) {
+    public Family(Human mother, Human father, List<Human> children,Set<Pet> pet) {
         this.mother = mother;
         this.father = father;
         this.children = children;
+        this.pet=pet;
     }
 
     public Human getMother() {
@@ -29,6 +32,9 @@ public class Family {
         return children;
     }
 
+    public Set<Pet> getPet() {
+        return pet;
+    }
     public void setMother(Human mother) {
         this.mother = mother;
     }
@@ -41,11 +47,16 @@ public class Family {
         this.children = children;
     }
 
+    public void setPet(Set<Pet> pet) {
+        this.pet = pet;
+    }
+
     @Override
     public String toString() {
         return "Family{" +
                 "mother=" + mother +
                 ", father=" + father +
+                ", pet=" + pet +
                 ", children=" + children +
                 '}';
     }
